@@ -98,8 +98,10 @@ const login = async (req, res) => {
 
 /***************************** ELECTRICITY PURCHASE **********************************/
 const purchaseElectricity = async (req, res) => {
-  try {
-    const { userId, amount } = req.body; 
+  try
+  {
+    const {userId} = req.params
+    const { meterNumber, amount } = req.body; 
     // Check if the user exists
     const user = await User.findById(userId);
     if (!user) {
@@ -115,6 +117,7 @@ const purchaseElectricity = async (req, res) => {
     const purchaseRecord = new ElectricityPurchase({
       userId: user._id,
       amount,
+      meterNumber
     });
 
     // Save the purchase record

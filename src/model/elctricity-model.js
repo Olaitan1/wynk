@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
 
 const electricityPurchaseSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    meterNumber:{
+        type: String,
     required: true
-  },
+    },
   amount: {
     type: Number,
     required: true

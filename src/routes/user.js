@@ -44,6 +44,6 @@ router.post('/login', login);
  *        200:
  *          description: Returns verified true.
  */
-router.post('/buy-light', protect, purchaseElectricity)
+router.post('/buy-light/:userId', protect, purchaseElectricity)
 router.get('/get-user/:userId', getUser)
 module.exports = router
